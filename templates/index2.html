@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHẬN DẠNG KHUÔN MẶT - ATM TAY HO</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome/css/font-awesome.css') }}">
+
+    <script src="{{ url_for('static', filename='jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='1.css') }}">
+    <script src="{{ url_for('static', filename='1.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="left">
+                <img src="{{ url_for('video_feed') }}" alt="" width="460">
+            </div><h3 style="color: red;font-size: 30px;margin-left: 30%;">{{status}}</h3>
+            <div class="right">
+                <ul>
+                     <li>
+                        <input href="javascript:void(0)" onclick="openRegisterModal();" style="font-size: 15px; font-family: segoe ui light;" data-toggle="modal" id="register" class="" type="button" value="Register">
+                      </li>
+                      <!-- <li>
+                        <input  href="javascript:void(0)" onclick="openCheckModal();" style="font-size: 15px; font-family: segoe ui light;"data-toggle="modal" id="check" class="" type="button" value="Check">
+                        
+                      </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade login" id="registerModal">
+            <div class="modal-dialog login animated">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Register</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="box">
+                            <form class="form-horizontal" method="post" role="form" action="" autocomplete="off">
+                                <div style="margin: auto; width: 30%;" class="col-right">
+                                    <img style="margin-left : 20%" class="avatar img-circle" src="{{regist}}" alt="">
+                                    
+                                </div>
+
+                                <div class="col-left">
+                                    <input type="text" name="rFullname" placeholder="Name" class="form-control" autofocus required>
+                                    <input type="text" name="rMobileNumber" placeholder="Phone" class="form-control" required>
+                                    <input type="text" name="rAddress" placeholder="Address" class="form-control" required>
+                                    <input style="display: block;" id= "btn-register" type="submit" value="Regist" name="submit">
+                                </div>
+                            </form>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade login" id="checkModal">
+            <div class="modal-dialog login animated">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Check</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="box">
+                            <form class="form-horizontal" style="display:flex" method="post" role="form" action="">
+                                <div style="margin: auto; width: 30%;" class="col-right">
+                                    <img style="margin-left : 20%" class="avatar img-circle" src="" alt="">
+                                    <p></p>
+                                </div>
+                                <div class="col-left">
+                                    <input type="text" name="cFullname" placeholder="Name" class="form-control" required>
+                                    <input type="text" name="cMobileNumber" placeholder="Phone" class="form-control" required>
+                                    <input type="text" name="cAddress" placeholder="Address" class="form-control" required>
+                                    <input style="display: block;" id= "btn-check" type="submit" value="Check" name="submit">
+                                </div>
+                            </form>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 500px; height:460px; margin:auto; border:1px solid gray; margin-top:50px" class="box">
+        <p style="font-size: 20px;margin-top: 3%; text-align: center;">Check</p>
+        <hr>
+        <form class="form-horizontal" method="post" role="form" action="">
+            
+            <div style="margin: auto; width: 30%;" class="col-right">
+                <img style="margin-left : 20%" class="avatar img-circle" src="{{img}}" alt="">
+                <p></p>
+            </div>
+            <div class="col-left" style="margin-right: 5%;margin-left: 5%;">
+                <input type="text" name="rFullname" placeholder="Name" class="form-control" value="{{ name }}" disabled required >
+                <input type="text" name="rMobileNumber" placeholder="Phone" class="form-control" disabled required value="{{ phone }}">
+                <input type="text" name="rAddress" placeholder="Address" class="form-control" disabled required value="{{ address }}">
+                <input type="text" name="rLasstime" placeholder="LastTime" class="form-control" disabled required value="{{ lasttime }}" >
+                <input style="display: block;" id= "btn-check" type="submit" value="Check" name="submit">
+            </div>
+        </form>
+    </div> 
+    
+</body>
+</html>
